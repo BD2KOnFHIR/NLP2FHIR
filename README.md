@@ -2,7 +2,7 @@
 NLP2FHIR: A FHIR-based Clinical Data Normalization Pipeline and Its Applications
 
 ## Upcoming Events
-### AMIA/HL7 FHIR® Applications Showcase [link](https://www.amia.org/amia2018/special-call-app-submissions)
+### [AMIA/HL7 FHIR® Applications Showcase](https://www.amia.org/amia2018/special-call-app-submissions)
 NLP2FHIR: A FHIR-based Clinical Data Normalization Pipeline and Its Application on Electronic Health Records (EHR)-Driven Phenotyping
 
 ## Publications
