@@ -1,5 +1,6 @@
 # NLP2FHIR
 NLP2FHIR: A FHIR-based Clinical Data Normalization Pipeline and Its Applications
+![alt text](https://raw.githubusercontent.com/BD2KOnFHIR/NLP2FHIR/master/nlp2fhir-system-architecture.png "NLP2FHIR System Architecture")
 
 ## Upcoming Events
 ### [AMIA/HL7 FHIR® Applications Showcase](https://www.amia.org/amia2018/special-call-app-submissions)
