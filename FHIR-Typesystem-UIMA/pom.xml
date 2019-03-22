@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>edu.mayo.bsi.nlp2fhir</groupId>
+        <artifactId>NLP2FHIR</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>FHIR-TypeSystem-UIMA</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <repositories>
+        <repository>
+            <id>lib</id>
+            <url>file://${basedir}/../lib</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.uima</groupId>
+                <artifactId>jcasgen-maven-plugin</artifactId>
+                <version>2.10.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <!-- runs in phase process-resources by default -->
+                        <configuration>
+
+                            <!-- REQUIRED -->
+                            <typeSystemIncludes>
+                                <!-- FHIR Type System -->
+                                <typeSystemInclude>src/main/resources/typesystems/FHIRTypeSystem.xml</typeSystemInclude>
+                            </typeSystemIncludes>
+
+                            <!-- OPTIONAL -->
+                            <typeSystemExcludes>
+                            </typeSystemExcludes>
+
+                            <!-- OPTIONAL -->
+                            <!-- where the generated files go -->
+                            <!-- default value:
+                                 ${project.build.directory}/generated-sources/jcasgen" -->
+                            <outputDirectory>
+                            </outputDirectory>
+
+                            <!-- true or false, default = false -->
+                            <!-- if true, then although the complete merged type system
+                                 will be created internally, only those types whose
+                                 definition is contained within this maven project will be
+                                 generated.  The others will be presumed to be
+                                 available via other projects. -->
+                            <!-- OPTIONAL -->
+                            <limitToProject>false</limitToProject>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <!-- UIMA -->
+        <dependency>
+            <groupId>org.apache.uima</groupId>
+            <artifactId>uimafit-core</artifactId>
+            <version>2.3.0</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.uima</groupId>
+            <artifactId>uimaj-tools</artifactId>
+            <version>2.9.0</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+</project>

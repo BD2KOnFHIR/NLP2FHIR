@@ -1,0 +1,38 @@
+Patient Active Problem List	20103
+Current outpatient prescriptions	20104
+Review Of Systems	20106
+Physical Exam	20111
+General Appearance	20111
+Assessment	20112
+Impression	20112
+Plan	20112
+Past Medical History	20107
+Past Surgical History	20107
+Review of patient's family history indicates	20109
+Social History	20108
+Reason for Consultation	20102
+HPI	20103
+PMH	20107
+Medications	20104
+Meds	20104
+Allergies	20105
+Family History	20109
+Family Hx	20109
+Social History	20108
+PE	20111
+ASSESSMENT	20112
+PLAN	20112
+ROS	20106
+A/P	20112
+PSH	20107
+DIAGNOSIS	20113
+GYN HISTORY	20107
+SOCIAL/HABITS	20108
+REVIEW OF SYSTEMS	20106
+PHYSICAL EXAMINATION	20111
+Pertinent reproductive history	20107
+Problem list	20103
+[DailyHL7_PATH_FINALDX]	20113
+[DailyHL7_SURG_HISDX_DIAGNOSIS]	20107
+[DailyHL7_SURG_HISPREDX_PREOPDIAGNOSIS]	20107
+[DailyHL7_SURG_HISMICRO_MICROSCOPICEXAMINA]	20107

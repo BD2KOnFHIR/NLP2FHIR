@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <name>org.ohnlp.medxn.types.MedXNTypes</name>
+  <description/>
+  <version>1.0</version>
+  <vendor/>
+  <imports>
+    <import name="typesystems.MedTaggerTypeSystem"/> <!-- Modified: org.ohnlp.medtagger.types.MedTaggerTypes -->
+  </imports>
+  <types>
+    <typeDescription>
+      <name>org.ohnlp.medxn.type.MedAttr</name>
+      <description>Medication name and attributes that simply hold string and offset</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>tag</name>
+          <description>semantic tag - eg, med, freq,...</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>org.ohnlp.medxn.type.Drug</name>
+      <description/>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>name</name>
+          <description/>
+          <rangeTypeName>org.ohnlp.medtagger.type.ConceptMention</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>attrs</name>
+          <description/>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>org.ohnlp.medxn.type.MedAttr</elementType>
+        </featureDescription>
+        <featureDescription>
+          <name>normDrug</name>
+          <description>normalized to RxNorm format: 
+BN or IN + " " + strength + " " + form</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>normRxType</name>
+          <description>Term type in RxNorm</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>normRxCui</name>
+          <description>RxCUI</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>normRxName</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>normDrug2</name>
+          <description>normalized drug description using RxCUI</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>normRxType2</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>normRxCui2</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>normRxName2</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>org.ohnlp.medxn.type.LookupWindow</name>
+      <description>lookup window for drug attributes</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+  </types>
+</typeSystemDescription>
