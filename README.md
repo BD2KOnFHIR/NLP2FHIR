@@ -36,7 +36,9 @@ To add this functionality to the GUI itself, add the appropriate options under t
 ## Demo App in Smart App Gallary
 [NLP2FHIR: A FHIR-based Clinical Data Normalization Pipeline](https://apps.smarthealthit.org/app/nlp2fhir-a-fhir-based-clinical-data-normalization-pipeline)
 
-## Upcoming Events
+## Useful Links
+### [NLP2FHIR on ONC Interoperability Proving Ground](https://www.healthit.gov/techlab/ipg/node/4/submission/2511)
+
 ### [AMIA/HL7 FHIR® Applications Showcase](https://www.amia.org/amia2018/special-call-app-submissions)
 NLP2FHIR: A FHIR-based Clinical Data Normalization Pipeline and Its Application on Electronic Health Records (EHR)-Driven Phenotyping
 
