@@ -30,10 +30,10 @@ public class CTAKESToFHIRFamilyMemberHistory extends JCasAnnotator_ImplBase {
     public void process(JCas cas) throws AnalysisEngineProcessException {
         Set<Span> constructed = new HashSet<>();
         for (Section s : JCasUtil.select(cas, Section.class)) {
-            if (s.getId().equalsIgnoreCase("10157-6")
-                    || s.getId().equalsIgnoreCase("29762-2")) {
+//            if (s.getId().equalsIgnoreCase("10157-6")
+//                    || s.getId().equalsIgnoreCase("29762-2")) {
                 buildFamilyMemberHistory(cas, s, constructed);
-            }
+//            }
         }
     }
 
