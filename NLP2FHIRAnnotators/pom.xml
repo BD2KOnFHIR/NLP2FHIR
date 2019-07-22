@@ -51,15 +51,21 @@
                                 <!-- FHIR Type System -->
                                 <typeSystemInclude>src/main/resources/typesystems/FHIRTypeSystem.xml</typeSystemInclude>
                                 <!-- Custom NLP -->
-                                <typeSystemInclude>src/main/resources/typesystems/CustomNLPTypeSystem.xml</typeSystemInclude>
+                                <typeSystemInclude>src/main/resources/typesystems/CustomNLPTypeSystem.xml
+                                </typeSystemInclude>
                                 <!-- MedXN Type System -->
-                                <typeSystemInclude>src/main/resources/typesystems/OHNLPTypeSystem.xml</typeSystemInclude>
-                                <typeSystemInclude>src/main/resources/typesystems/MedTaggerTypeSystem.xml</typeSystemInclude>
-                                <typeSystemInclude>src/main/resources/typesystems/MedXNTypeSystem.xml</typeSystemInclude>
+                                <typeSystemInclude>src/main/resources/typesystems/OHNLPTypeSystem.xml
+                                </typeSystemInclude>
+                                <typeSystemInclude>src/main/resources/typesystems/MedTaggerTypeSystem.xml
+                                </typeSystemInclude>
+                                <typeSystemInclude>src/main/resources/typesystems/MedXNTypeSystem.xml
+                                </typeSystemInclude>
                                 <!-- MedTime Type System -->
-                                <typeSystemInclude>src/main/resources/typesystems/MedTimeTypeSystem.xml</typeSystemInclude>
+                                <typeSystemInclude>src/main/resources/typesystems/MedTimeTypeSystem.xml
+                                </typeSystemInclude>
                                 <!-- Evaluation -->
-                                <typeSystemInclude>src/main/resources/typesystems/KnowtatorTypeSystem.xml</typeSystemInclude>
+                                <typeSystemInclude>src/main/resources/typesystems/KnowtatorTypeSystem.xml
+                                </typeSystemInclude>
                             </typeSystemIncludes>
 
                             <!-- OPTIONAL -->
@@ -96,7 +102,7 @@
                             <artifact>org.ohnlp.medtime:MedTime</artifact>
                             <excludes>
                                 <exclude>org/ohnlp/medtagger/ae/LineSentenceDetector.class</exclude>
-                                <exclude>org/ohnlp/medtime/ae/MedTimeAnnotator.class</exclude>
+<!--                                <exclude>org/ohnlp/medtime/ae/MedTimeAnnotator.class</exclude>-->
                             </excludes>
                         </filter>
                         <filter>
@@ -415,11 +421,11 @@
             <artifactId>opennlp-uima</artifactId>
             <version>1.8.2</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>net.bytebuddy</groupId>-->
-        <!--<artifactId>byte-buddy</artifactId>-->
-        <!--<version>1.7.9</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.7.11</version>
+        </dependency>
         <!-- FHIR I/O -->
         <dependency>
             <groupId>ca.uhn.hapi.fhir</groupId>
@@ -442,10 +448,10 @@
             <artifactId>AnnotationUtils</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>edu.uchsc.ccp.knowtator</groupId>-->
-<!--            <artifactId>knowtator</artifactId>-->
-<!--            <version>1.9b2</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>edu.uchsc.ccp.knowtator</groupId>-->
+        <!--            <artifactId>knowtator</artifactId>-->
+        <!--            <version>1.9b2</version>-->
+        <!--        </dependency>-->
     </dependencies>
 </project>

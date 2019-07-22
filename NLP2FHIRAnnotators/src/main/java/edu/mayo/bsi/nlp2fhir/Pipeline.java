@@ -26,7 +26,6 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.apache.uima.pear.util.FileUtil;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.ohnlp.medtagger.cr.FileSystemReader;
-import org.ohnlp.medtime.ae.MedTimeAnnotator;
 
 import java.io.*;
 import java.util.ArrayList;
