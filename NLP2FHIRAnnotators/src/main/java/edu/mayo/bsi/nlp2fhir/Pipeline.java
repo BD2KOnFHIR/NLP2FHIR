@@ -3,9 +3,9 @@ package edu.mayo.bsi.nlp2fhir;
 import edu.mayo.bsi.nlp2fhir.evaluation.GoldStandardEvaluationAnalysisEngine;
 import edu.mayo.bsi.nlp2fhir.extractors.SectionExtractor;
 import edu.mayo.bsi.nlp2fhir.extractors.SnomedCTDictionaryLookupExtractor;
-import edu.mayo.bsi.nlp2fhir.postprocessors.FHIR2KnowtatorPostProcessor;
+//import edu.mayo.bsi.nlp2fhir.postprocessors.FHIR2KnowtatorPostProcessor;
 import edu.mayo.bsi.nlp2fhir.postprocessors.XMIWriterPostProcessor;
-import edu.mayo.bsi.nlp2fhir.postprocessors.mayo.Sections2KnowtatorPostProcessor;
+//import edu.mayo.bsi.nlp2fhir.postprocessors.mayo.Sections2KnowtatorPostProcessor;
 import edu.mayo.bsi.nlp2fhir.preprocessors.FHIRXMIFileSystemReader;
 import edu.mayo.bsi.nlp2fhir.transformers.CTAKESToFHIRMedications;
 import edu.mayo.bsi.nlp2fhir.transformers.CTAKESToFHIRProblemList;
@@ -106,10 +106,10 @@ public class Pipeline {
         pipelineBuilder.add(AnalysisEngineFactory.createEngineDescription(XMIWriterPostProcessor.class,
                 XMIWriterPostProcessor.PARAM_OUTPUT_DIR, "out"
         ));
-        pipelineBuilder.add(AnalysisEngineFactory.createEngineDescription(Sections2KnowtatorPostProcessor.class));
-        pipelineBuilder.add(AnalysisEngineFactory.createEngineDescription(FHIR2KnowtatorPostProcessor.class,
-                "PROJECT_FILE", new File("protege_fhir_schema", "FHIR_SCHEMA.pprj").getPath(),
-                "OUTPUT_DIR", "fhir_knowtator_out"));
+//        pipelineBuilder.add(AnalysisEngineFactory.createEngineDescription(Sections2KnowtatorPostProcessor.class));
+//        pipelineBuilder.add(AnalysisEngineFactory.createEngineDescription(FHIR2KnowtatorPostProcessor.class,
+//                "PROJECT_FILE", new File("protege_fhir_schema", "FHIR_SCHEMA.pprj").getPath(),
+//                "OUTPUT_DIR", "fhir_knowtator_out"));
         AnalysisEngineDescription pipeline = pipelineBuilder.createAggregateDescription();
         SimplePipeline.runPipeline(cr, pipeline);
 

@@ -93,14 +93,14 @@
                     <minimizeJar>false</minimizeJar>
                     <filters>
                         <filter>
-                            <artifact>org.ohnlp.ir.medtime:MedTime</artifact>
+                            <artifact>org.ohnlp.medtime:MedTime</artifact>
                             <excludes>
                                 <exclude>org/ohnlp/medtagger/ae/LineSentenceDetector.class</exclude>
                                 <exclude>org/ohnlp/medtime/ae/MedTimeAnnotator.class</exclude>
                             </excludes>
                         </filter>
                         <filter>
-                            <artifact>org.ohnlp.ir.medxn:MedXN</artifact>
+                            <artifact>org.ohnlp.medxn:MedXN</artifact>
                             <excludes>
                                 <exclude>opennlp/tools/sentdetect/SentenceModel.class</exclude>
                                 <exclude>org/ohnlp/medtagger/ae/LineSentenceDetector.class</exclude>
@@ -371,7 +371,7 @@
             <artifactId>
                 ctakes-dependency-parser
             </artifactId>
-            <version>4.0.1-SNAPSHOT</version> <!-- TODO use specially modified version -->
+            <version>${ctakes.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.ctakes</groupId>
@@ -396,27 +396,17 @@
         </dependency>
         <!-- MedExtractors NLP Pipelines -->
         <dependency>
-            <groupId>edu.mayo</groupId>
-            <artifactId>MedXN-Resources</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ohnlp.ir.medxn</groupId>
+            <groupId>org.ohnlp.medxn</groupId>
             <artifactId>MedXN</artifactId>
             <version>1.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>edu.mayo</groupId>
-            <artifactId>MedTime-Resources</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ohnlp.ir.medtime</groupId>
+            <groupId>org.ohnlp.medtime</groupId>
             <artifactId>MedTime</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.3-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.ohnlp.ir.medtagger</groupId>
+            <groupId>org.ohnlp.medtagger</groupId>
             <artifactId>MedTagger</artifactId>
             <version>1.0.2-SNAPSHOT</version>
         </dependency>
@@ -452,10 +442,10 @@
             <artifactId>AnnotationUtils</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>edu.uchsc.ccp.knowtator</groupId>
-            <artifactId>knowtator</artifactId>
-            <version>1.9b2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>edu.uchsc.ccp.knowtator</groupId>-->
+<!--            <artifactId>knowtator</artifactId>-->
+<!--            <version>1.9b2</version>-->
+<!--        </dependency>-->
     </dependencies>
 </project>

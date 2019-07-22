@@ -39,7 +39,7 @@ public class ProduceCompositionResourcesPipeline {
         );
         pipeline.add(SerializationPipelineBuilder
                 .newBuilder(new File("out"))
-                .addKnowtatorOutput("Condition", "Procedure", "Device", "MedicationStatement", "FamilyMemberHistory")
+//                .addKnowtatorOutput("Condition", "Procedure", "Device", "MedicationStatement", "FamilyMemberHistory")
                 .addXMIOutput()
                 .addFHIRJSONOutput()
                 .addDocumentOutput()

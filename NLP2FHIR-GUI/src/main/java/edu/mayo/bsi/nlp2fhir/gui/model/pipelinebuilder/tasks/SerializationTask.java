@@ -77,16 +77,16 @@ public class SerializationTask implements PipelineTask {
             producedResources.addAll(((ResourceTask.Invocation)o).getResources());
         }
         producedResources.add("Composition");
-        if ((boolean) SERIALIZATION_OPTIONS.get(KEYS.OUTPUT_KNOWTATOR.name()).get(0).getSelected().get(0)) {
-            builder.addKnowtatorOutput(producedResources.toArray(new String[producedResources.size()])); // TODO
-        }
-        if ((boolean) SERIALIZATION_OPTIONS.get(KEYS.OUTPUT_ANAFORA.name()).get(0).getSelected().get(0)) {
-            String username = SERIALIZATION_OPTIONS.get(KEYS.OUTPUT_ANAFORA.name()).get(1).getValue();
-            String corpus = SERIALIZATION_OPTIONS.get(KEYS.OUTPUT_ANAFORA.name()).get(2).getValue();
-            @SuppressWarnings("SuspiciousToArrayCall") // Known to be correct by options being set
-            String[] resources = producedResources.toArray(new String[producedResources.size()]);
-            builder.addAnaforaOutput(username, corpus, resources); // TODO
-        }
+//        if ((boolean) SERIALIZATION_OPTIONS.get(KEYS.OUTPUT_KNOWTATOR.name()).get(0).getSelected().get(0)) {
+//            builder.addKnowtatorOutput(producedResources.toArray(new String[producedResources.size()])); // TODO
+//        }
+//        if ((boolean) SERIALIZATION_OPTIONS.get(KEYS.OUTPUT_ANAFORA.name()).get(0).getSelected().get(0)) {
+//            String username = SERIALIZATION_OPTIONS.get(KEYS.OUTPUT_ANAFORA.name()).get(1).getValue();
+//            String corpus = SERIALIZATION_OPTIONS.get(KEYS.OUTPUT_ANAFORA.name()).get(2).getValue();
+//            @SuppressWarnings("SuspiciousToArrayCall") // Known to be correct by options being set
+//            String[] resources = producedResources.toArray(new String[producedResources.size()]);
+//            builder.addAnaforaOutput(username, corpus, resources); // TODO
+//        }
         pipeline.getPipeline().add(builder.build());
     }
 

@@ -1,42 +1,18 @@
 package edu.mayo.bsi.nlp2fhir.pipelines;
 
 import edu.mayo.bsi.nlp2fhir.evaluation.EvaluationXMIReader;
-import edu.mayo.bsi.nlp2fhir.pipelines.evaluation.EvaluationPipelineBuilder;
-import edu.mayo.bsi.nlp2fhir.pipelines.resources.ResourcePipelineBuilder;
-import edu.mayo.bsi.nlp2fhir.pipelines.serialization.SerializationPipelineBuilder;
-import edu.mayo.bsi.nlp2fhir.preprocessors.FHIRFileSystemReader;
-import edu.mayo.bsi.nlp2fhir.specialized.SectionReader;
-import edu.mayo.bsi.nlp2fhir.evaluation.EvaluationXMIReader;
 import edu.mayo.bsi.nlp2fhir.evaluation.SHARPKnowtatorXMLReaderWrapper;
 import edu.mayo.bsi.nlp2fhir.pipelines.evaluation.EvaluationPipelineBuilder;
 import edu.mayo.bsi.nlp2fhir.pipelines.resources.ResourcePipelineBuilder;
 import edu.mayo.bsi.nlp2fhir.pipelines.serialization.SerializationPipelineBuilder;
 import edu.mayo.bsi.nlp2fhir.preprocessors.FHIRFileSystemReader;
-import edu.mayo.bsi.nlp2fhir.preprocessors.FHIRXMIFileSystemReader;
-import edu.mayo.bsi.nlp2fhir.specialized.SectionReader;
-import edu.mayo.bsi.nlp2fhir.transformers.CTAKESToFHIRFamilyMemberHistory;
-import edu.mayo.bsi.nlp2fhir.transformers.CTAKESToFHIRProblemList;
-import org.apache.ctakes.assertion.pipelines.GoldEntityAndAttributeReaderPipeline;
 import org.apache.ctakes.core.ae.SHARPKnowtatorXMLReader;
-import org.apache.ctakes.core.cr.XmiCollectionReaderCtakes;
-import org.apache.ctakes.relationextractor.data.GoldAnnotationAnalysisPipeline;
-import org.apache.ctakes.typesystem.type.structured.DocumentID;
 import org.apache.uima.UIMAException;
-import org.apache.uima.UIMAFramework;
-import org.apache.uima.analysis_engine.AnalysisEngine;
-import org.apache.uima.analysis_engine.AnalysisEngineDescription;
-import org.apache.uima.cas.CAS;
-import org.apache.uima.collection.CollectionReader;
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.factory.AggregateBuilder;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
-import org.apache.uima.fit.internal.ResourceManagerFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
-import org.apache.uima.fit.util.JCasUtil;
-import org.apache.uima.resource.ResourceManager;
-import org.apache.uima.util.CasCopier;
-import org.apache.uima.util.CasCreationUtils;
 import org.hl7.fhir.Condition;
 import org.hl7.fhir.FamilyMemberHistory;
 import org.hl7.fhir.Procedure;
@@ -44,9 +20,6 @@ import org.ohnlp.medtagger.cr.FileSystemReader;
 
 import java.io.File;
 import java.io.IOException;
-
-import static java.util.Arrays.asList;
-import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 
 public class EvaluationPipeline {
     public static void main(String... args) throws IOException, UIMAException {
@@ -57,8 +30,8 @@ public class EvaluationPipeline {
                 FileSystemReader.PARAM_INPUTDIR, "resources/evaluation/sharpn/text"
         );
         AggregateBuilder extractionPipeline = new AggregateBuilder();
-        extractionPipeline.add(AnalysisEngineFactory.createEngineDescription(SectionReader.class,
-                SectionReader.PARAM_PROJECT_FILE, "resources/evaluation/sharpn/sections/SECTION_ANNOTATIONS.pprj"));
+//        extractionPipeline.add(AnalysisEngineFactory.createEngineDescription(SectionReader.class,
+//                SectionReader.PARAM_PROJECT_FILE, "resources/evaluation/sharpn/sections/SECTION_ANNOTATIONS.pprj"));
         extractionPipeline.add(ResourcePipelineBuilder
                         .newBuilder(SourceNLPSystem.CTAKES, SourceNLPSystem.MEDTIME, SourceNLPSystem.MEDXN)
 //                .addMedicationListResources()
@@ -68,8 +41,8 @@ public class EvaluationPipeline {
         );
         extractionPipeline.add(SerializationPipelineBuilder
                 .newBuilder(new File("out"))
-                .addKnowtatorOutput("Condition", "Procedure", "Device", "MedicationStatement", "FamilyMemberHistory")
-                .addAnaforaOutput("anafora", "SHARPN", "Composition", "Condition", "Procedure", "MedicationStatement", "FamilyMemberHistory")
+//                .addKnowtatorOutput("Condition", "Procedure", "Device", "MedicationStatement", "FamilyMemberHistory")
+//                .addAnaforaOutput("anafora", "SHARPN", "Composition", "Condition", "Procedure", "MedicationStatement", "FamilyMemberHistory")
                 .addXMIOutput()
                 .addFHIRJSONOutput()
                 .addDocumentOutput()
@@ -80,8 +53,8 @@ public class EvaluationPipeline {
         goldPipeline.add(AnalysisEngineFactory.createEngineDescription(SHARPKnowtatorXMLReaderWrapper.class,
                 SHARPKnowtatorXMLReader.PARAM_SET_DEFAULTS, false,
                 SHARPKnowtatorXMLReader.PARAM_TEXT_DIRECTORY, "resources/evaluation/sharpn/text"));
-        goldPipeline.add(AnalysisEngineFactory.createEngineDescription(SectionReader.class,
-                SectionReader.PARAM_PROJECT_FILE, "resources/evaluation/sharpn/sections/SECTION_ANNOTATIONS.pprj"));
+//        goldPipeline.add(AnalysisEngineFactory.createEngineDescription(SectionReader.class,
+//                SectionReader.PARAM_PROJECT_FILE, "resources/evaluation/sharpn/sections/SECTION_ANNOTATIONS.pprj"));
         goldPipeline.add(ResourcePipelineBuilder
                 .newBuilder()
                 .addProblemListResources()
@@ -89,9 +62,9 @@ public class EvaluationPipeline {
                 .build());
         goldPipeline.add(SerializationPipelineBuilder
                 .newBuilder(new File("gold_out"))
-                .addKnowtatorOutput("Condition", "Procedure", "Device", "MedicationStatement", "FamilyMemberHistory")
+//                .addKnowtatorOutput("Condition", "Procedure", "Device", "MedicationStatement", "FamilyMemberHistory")
                 .addXMIOutput()
-                .addAnaforaOutput("anafora", "SHARPN", "Composition", "Condition", "Procedure", "MedicationStatement", "FamilyMemberHistory")
+//                .addAnaforaOutput("anafora", "SHARPN", "Composition", "Condition", "Procedure", "MedicationStatement", "FamilyMemberHistory")
                 .addFHIRJSONOutput()
                 .addDocumentOutput()
                 .build());

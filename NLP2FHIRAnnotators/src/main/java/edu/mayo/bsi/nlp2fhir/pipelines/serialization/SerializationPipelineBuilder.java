@@ -1,10 +1,10 @@
 package edu.mayo.bsi.nlp2fhir.pipelines.serialization;
 
-import edu.mayo.bsi.nlp2fhir.anafora.serialization.CAS2AnaforaAnalysisEngine;
-import edu.mayo.bsi.nlp2fhir.knowtator.KnowtatorFHIROntologyClassdefGenerator;
+//import edu.mayo.bsi.nlp2fhir.anafora.serialization.CAS2AnaforaAnalysisEngine;
+//import edu.mayo.bsi.nlp2fhir.knowtator.KnowtatorFHIROntologyClassdefGenerator;
 import edu.mayo.bsi.nlp2fhir.postprocessors.CAS2FHIRJSONPostProcessor;
 import edu.mayo.bsi.nlp2fhir.postprocessors.DocumentTextContentPostProcessor;
-import edu.mayo.bsi.nlp2fhir.postprocessors.FHIR2KnowtatorPostProcessor;
+//import edu.mayo.bsi.nlp2fhir.postprocessors.FHIR2KnowtatorPostProcessor;
 import edu.mayo.bsi.nlp2fhir.postprocessors.XMIWriterPostProcessor;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.fit.factory.AggregateBuilder;
@@ -39,45 +39,45 @@ public class SerializationPipelineBuilder {
         }
     }
 
-    /**
-     * Serialization Pipelines
-     */
-    public SerializationPipelineBuilder addKnowtatorOutput(String... resourcesToProduce) {
-        File out = new File(outputDirectory, "knowtator");
-        if (!out.exists()) {
-            if (!out.mkdirs()) {
-                throw new IllegalArgumentException("Could not create knowtator output dir");
-            }
-        }
-        try {
-            KnowtatorFHIROntologyClassdefGenerator.main(resourcesToProduce);
-            pipeline.add(AnalysisEngineFactory.createEngineDescription(FHIR2KnowtatorPostProcessor.class,
-                    FHIR2KnowtatorPostProcessor.PARAM_FHIRPPRJ, new File("protege_fhir_schema", "FHIR_SCHEMA.pprj"),
-                    FHIR2KnowtatorPostProcessor.PARAM_OUTPUT_DIR, out));
-            return this;
-        } catch (ResourceInitializationException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public SerializationPipelineBuilder addAnaforaOutput(String username, String corpusname, String... resources) {
-        File out = new File(outputDirectory, "anafora");
-        if (!out.exists()) {
-            if (!out.mkdirs()) {
-                throw new IllegalArgumentException("Could not create anafora output dir");
-            }
-        }
-        try {
-            pipeline.add(AnalysisEngineFactory.createEngineDescription(CAS2AnaforaAnalysisEngine.class,
-                    CAS2AnaforaAnalysisEngine.PARAM_OUTPUT_DIR, out,
-                    CAS2AnaforaAnalysisEngine.PARAM_ANAFORA_CORPUSNAME, corpusname,
-                    CAS2AnaforaAnalysisEngine.PARAM_ANAFORA_USERNAME, username,
-                    CAS2AnaforaAnalysisEngine.PARAM_TRANSLATED_RESOURCES, resources));
-            return this;
-        } catch (ResourceInitializationException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    /**
+//     * Serialization Pipelines
+//     */
+//    public SerializationPipelineBuilder addKnowtatorOutput(String... resourcesToProduce) {
+//        File out = new File(outputDirectory, "knowtator");
+//        if (!out.exists()) {
+//            if (!out.mkdirs()) {
+//                throw new IllegalArgumentException("Could not create knowtator output dir");
+//            }
+//        }
+//        try {
+//            KnowtatorFHIROntologyClassdefGenerator.main(resourcesToProduce);
+//            pipeline.add(AnalysisEngineFactory.createEngineDescription(FHIR2KnowtatorPostProcessor.class,
+//                    FHIR2KnowtatorPostProcessor.PARAM_FHIRPPRJ, new File("protege_fhir_schema", "FHIR_SCHEMA.pprj"),
+//                    FHIR2KnowtatorPostProcessor.PARAM_OUTPUT_DIR, out));
+//            return this;
+//        } catch (ResourceInitializationException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+//
+//    public SerializationPipelineBuilder addAnaforaOutput(String username, String corpusname, String... resources) {
+//        File out = new File(outputDirectory, "anafora");
+//        if (!out.exists()) {
+//            if (!out.mkdirs()) {
+//                throw new IllegalArgumentException("Could not create anafora output dir");
+//            }
+//        }
+//        try {
+//            pipeline.add(AnalysisEngineFactory.createEngineDescription(CAS2AnaforaAnalysisEngine.class,
+//                    CAS2AnaforaAnalysisEngine.PARAM_OUTPUT_DIR, out,
+//                    CAS2AnaforaAnalysisEngine.PARAM_ANAFORA_CORPUSNAME, corpusname,
+//                    CAS2AnaforaAnalysisEngine.PARAM_ANAFORA_USERNAME, username,
+//                    CAS2AnaforaAnalysisEngine.PARAM_TRANSLATED_RESOURCES, resources));
+//            return this;
+//        } catch (ResourceInitializationException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     public SerializationPipelineBuilder addFHIRJSONOutput() {
         File out = new File(outputDirectory, "fhir_resources");
