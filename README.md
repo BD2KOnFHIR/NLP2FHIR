@@ -4,11 +4,14 @@ NLP2FHIR: A FHIR-based Clinical Data Normalization Pipeline and Its Applications
 
 ## Prerequisites
 The following binaries and all associated resources are required in the classpath for successful execution, and are required on the build path (declared as a system library in maven) for developers
-* [MedTagger](https://github.com/OHNLPIR/MedTagger)
+* [MedTagger](https://github.com/OHNLP/MedTagger)
 * [cTAKES](http://ctakes.apache.org/downloads.cgi)
-* [MedTime](https://github.com/OHNLPIR/MedTime)
+* [MedTime](https://github.com/OHNLP/MedTime)
 * [MedXN](https://github.com/OHNLP/MedXN)
 * [UMLS VTS](https://github.com/OHNLPIR/UMLS_VTS)
+
+For Streaming/RESTful Service Functionality, you will additionally need
+* [UIMA-Stream-Server](https://github.com/OHNLPIR/UIMA-Stream-Server) 
 
 In addition, you will need the following:
 * The MRCONSO.RRF file from a copy of the UMLS (placed in ./UMLS)
