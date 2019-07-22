@@ -41,6 +41,7 @@ import org.cleartk.ml.jar.DefaultDataWriterFactory;
 import org.cleartk.ml.jar.DirectoryDataWriterFactory;
 import org.cleartk.ml.libsvm.LibSvmBooleanOutcomeDataWriter;
 import org.cleartk.ml.libsvm.LibSvmStringOutcomeDataWriter;
+import org.ohnlp.medtime.ae.MedTimeAnnotator;
 
 import java.io.File;
 import java.io.FileNotFoundException;

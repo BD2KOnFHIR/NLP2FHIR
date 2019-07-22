@@ -22,6 +22,7 @@ import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.dynamic.loading.ClassReloadingStrategy;
 import net.bytebuddy.implementation.MethodDelegation;
 import net.bytebuddy.matcher.ElementMatchers;
+import org.ohnlp.medtime.ae.MedTimeAnnotator;
 import org.ohnlp.medtime.ae.MedTimeAnnotatorRuntimeInterceptor;
 
 public class GUI {
