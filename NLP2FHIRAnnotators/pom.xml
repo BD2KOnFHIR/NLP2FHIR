@@ -102,7 +102,7 @@
                             <artifact>org.ohnlp.medtime:MedTime</artifact>
                             <excludes>
                                 <exclude>org/ohnlp/medtagger/ae/LineSentenceDetector.class</exclude>
-<!--                                <exclude>org/ohnlp/medtime/ae/MedTimeAnnotator.class</exclude>-->
+                                <exclude>org/ohnlp/medtime/ae/MedTimeAnnotator.class</exclude>
                             </excludes>
                         </filter>
                         <filter>

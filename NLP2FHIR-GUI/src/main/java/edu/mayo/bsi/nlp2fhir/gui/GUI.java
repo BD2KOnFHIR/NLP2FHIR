@@ -189,17 +189,17 @@ public class GUI {
 
     public static void main(String... args) {
         System.setProperty("vocab.src.dir", System.getProperty("user.dir"));
-        ByteBuddyAgent.install();
-        new ByteBuddy()
-                .redefine(MedTimeAnnotator.class)
-                .method(ElementMatchers.named("process"))
-                .intercept(MethodDelegation.to(new MedTimeAnnotatorRuntimeInterceptor()))
-                .field(ElementMatchers.named("newYearValue"))
-                .value("0")
-                .field(ElementMatchers.named("cYearValue"))
-                .value("0")
-                .make()
-                .load(GUI.class.getClassLoader(), ClassReloadingStrategy.fromInstalledAgent());
+//        ByteBuddyAgent.install();
+//        new ByteBuddy()
+//                .redefine(MedTimeAnnotator.class)
+//                .method(ElementMatchers.named("process"))
+//                .intercept(MethodDelegation.to(new MedTimeAnnotatorRuntimeInterceptor()))
+////                .field(ElementMatchers.named("newYearValue"))
+////                .value("0")
+////                .field(ElementMatchers.named("cYearValue"))
+////                .value("0")
+//                .make()
+//                .load(GUI.class.getClassLoader(), ClassReloadingStrategy.fromInstalledAgent());
         new GUI();
     }
 
