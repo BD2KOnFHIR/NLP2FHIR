@@ -414,7 +414,7 @@
         <dependency>
             <groupId>org.ohnlp.medtagger</groupId>
             <artifactId>MedTagger</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.3</version>
         </dependency>
         <dependency>
             <groupId>org.apache.opennlp</groupId>
