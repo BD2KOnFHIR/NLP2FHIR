@@ -51,3 +51,6 @@ NLP2FHIR: A FHIR-based Clinical Data Normalization Pipeline and Its Application 
 * Hong N, Wen A, Mojarad RM, Sohn S, Liu H, Jiang G. Standardizing Heterogeneous Annotation Corpora Using HL7 FHIR for Facilitating their Reuse and Integration in Clinical NLP. AMIA Annu Symp Proc 2018. (paper in press). [AMIA2018](https://symposium2018.zerista.com/event/member/508540)|[PubMed](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6371380/)
 
 * Hong N, Wen A, Stone D, Kingsbury PR, Rasmussen LV, Adekkanattu P, Luo Y, Pathak J, Liu H, Jiang G. Applying a FHIR-based Data Normalization Pipeline to the Identification of Patients with Obesity and Its Comorbidities from Discharge Summaries. AMIA Informatics Summit CRI 2019. [podium abstract](https://informaticssummit2019.zerista.com/event/member/542977).
+
+* Hong N, Wen A, Shen F, Sohn S, Wang C, Liu H, Jiang G. Developing a scalable FHIR-based clinical data normalization pipeline for standardizing and integrating unstructured and structured electronic health record data. 2019 [JAMIA Open, ooz056](https://doi.org/10.1093/jamiaopen/ooz056)
+
