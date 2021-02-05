@@ -14,7 +14,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <ctakes.version>4.0.0</ctakes.version>
+        <ctakes.version>4.0.0.1</ctakes.version>
     </properties>
 
     <repositories>

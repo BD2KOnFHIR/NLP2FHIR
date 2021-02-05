@@ -88,22 +88,22 @@ public class GUI {
         });
         user.add(userField);
         JPanel pass = new JPanel();
-        pass.add(new JLabel("UMLS Password: "));
+        pass.add(new JLabel("UMLS API Key: "));
         JTextField passField = new JPasswordField(10);
         passField.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                System.setProperty("ctakes.umlspw", passField.getText());
+                System.setProperty("ctakes.umls_apikey", passField.getText());
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                System.setProperty("ctakes.umlspw", passField.getText());
+                System.setProperty("ctakes.umls_apikey", passField.getText());
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                System.setProperty("ctakes.umlspw", passField.getText());
+                System.setProperty("ctakes.umls_apikey", passField.getText());
             }
         });
         pass.add(passField);
