@@ -1,5 +1,7 @@
 package edu.mayo.bsi.nlp2fhir.transformers;
 
+import edu.mayo.bsi.nlp.vts.SNOMEDCT;
+import edu.mayo.bsi.nlp.vts.UMLS;
 import edu.mayo.bsi.nlp2fhir.Util;
 import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
 import org.apache.ctakes.typesystem.type.textsem.EntityMention;
