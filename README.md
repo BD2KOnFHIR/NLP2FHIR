@@ -23,7 +23,13 @@ Download all prerequisites, and compile each module using Maven (mvn clean insta
 Copy this to your root directory and launch using
 ``java –cp ./resources;./lib;./NLP2FHIR-GUI-1.0-SNAPSHOT.jar edu.mayo.bsi.nlp2fhir.gui.GUI``
 
-Simply select the correct options relevant to your use case via the GUI and you are set! Make sure to insert your UMLS username and password in the upper right hand corner!
+Simply select the correct options relevant to your use case via the GUI and you are set! Make sure to insert your UMLS username and password ([UMLS api-key](https://uts.nlm.nih.gov/uts/profile)) in the upper right hand corner!
+
+### Using NLP2FHIR via Command Line Interface
+``java –cp ./resources;./lib;./NLP2FHIR-GUI-1.0-SNAPSHOT.jar edu.mayo.bsi.nlp2fhir.gui.CLI``
+
+See help documentation on usage of CLI:
+``java –cp ./resources;./lib;./NLP2FHIR-GUI-1.0-SNAPSHOT.jar edu.mayo.bsi.nlp2fhir.gui.CLI --help``
 
 ## For Developers
 NLP2FHIR is written as a UIMA pipeline. As such, it is compatible in a plug and play manner with other UIMA pipelines. To leverage this functionality, please refer to `edu.mayo.bsi.nlp2fhir.pipelines` package in the NLP2FHIRAnnotators module. 
