@@ -15,6 +15,7 @@ public interface ResourceProducers {
     FamilyMemberHistoryResourceProducer FAMILY_MEMBER_HISTORY = new FamilyMemberHistoryResourceProducer();
     MedicationStatementResourceProducer MEDICATION_STATEMENT = new MedicationStatementResourceProducer();
     MedicationResourceProducer MEDICATION = new MedicationResourceProducer();
+    ObservationResourceProducer OBSERVATION = new ObservationResourceProducer();
     // Maps
     static Resource parseResourceFromCasAnn(String documentID, Annotation ann) {
         if (ann instanceof Condition) {
@@ -34,6 +35,9 @@ public interface ResourceProducers {
         }
         if (ann instanceof Medication) {
             return MEDICATION.produce(documentID, ann);
+        }
+        if (ann instanceof Observation) {
+            return OBSERVATION.produce(documentID, ann);
         }
         return null;
     }
