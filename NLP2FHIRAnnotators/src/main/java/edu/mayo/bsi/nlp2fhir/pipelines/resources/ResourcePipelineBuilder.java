@@ -102,13 +102,14 @@ public class ResourcePipelineBuilder {
                     )
             ));
 
-        pipeline.add(AnalysisEngineFactory.createEngineDescription(DefaultJCasTermAnnotator.class,
-                "windowAnnotations", "org.apache.ctakes.typesystem.type.textspan.Sentence",
-                "DictionaryDescriptor", ExternalResourceFactory.createExternalResourceDescription(
-                        FileResourceImpl.class,
-                        FileLocator.locateFile("org/apache/ctakes/dictionary/lookup/fast/covid_tui_cui.xml")
-                )
-        ));
+//        pipeline.add(AnalysisEngineFactory.createEngineDescription(DefaultJCasTermAnnotator.class,
+//                "windowAnnotations", "org.apache.ctakes.typesystem.type.textspan.Sentence",
+//                "DictionaryDescriptor", ExternalResourceFactory.createExternalResourceDescription(
+//                        FileResourceImpl.class,
+//                        FileLocator.locateFile("org/apache/ctakes/dictionary/lookup/fast/covid_tui_cui.xml")
+//                )
+//        ));
+
 //        }
 //        pipeline.add(AnalysisEngineFactory.createEngineDescription(SideEffectAnnotator.class));
         // -- Coreference Processing
