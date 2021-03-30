@@ -58,8 +58,8 @@ public class CLI implements Runnable {
     String inputType="text";
     int inputmode = 3;
 
-    @Option(order = 4, names={"-r", "--resources"}, arity = "1..3", description="Specify which resources to produce with the following integers:\n 0. Medication List \n 1. Procedures and Conditions\n 2. Family Medical History \n Example usage: -r 0 1 \n Default: All Resources selected")
-    int[] resourcesToProduce = new int[]{0, 1, 2};
+    @Option(order = 4, names={"-r", "--resources"}, arity = "1..4", description="Specify which resources to produce with the following integers:\n 0. Medication List Resources \n 1. Procedures and Conditions\n 2. Family Medical History\n 3. Observation Resources \n Example usage: -r 0 1 \n Default: All Resources selected")
+    int[] resourcesToProduce = new int[]{0, 1, 2, 3};
 
     @Option(order = 10, names="--cli-debug", description = "add debug output for parsing CLI arguments to stdout.")
     boolean debug = false;

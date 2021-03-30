@@ -46,7 +46,14 @@ public class ResourceTask implements PipelineTask {
                                     } catch (ResourceInitializationException e) {
                                         throw new RuntimeException(e);
                                     }
-                                }, "FamilyMemberHistory")
+                                }, "FamilyMemberHistory"),
+                                new Invocation("Observation Resources", c -> {
+                                    try {
+                                        return c.addObservationResources();
+                                    } catch (ResourceInitializationException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                }, "Observation")
                         )));
     }
 

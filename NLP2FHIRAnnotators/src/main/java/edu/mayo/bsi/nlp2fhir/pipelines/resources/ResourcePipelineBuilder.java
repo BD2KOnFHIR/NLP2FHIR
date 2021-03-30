@@ -245,6 +245,19 @@ public class ResourcePipelineBuilder {
     }
 
     /**
+     * Adds pipelines for generation of {@link org.hl7.fhir.Observation} resources
+     *
+     * @return The builder instance that the problem list pipeline was added to
+     */
+    @PipelineDependency(
+            required = {SourceNLPSystem.CTAKES}
+    )
+    public ResourcePipelineBuilder addObservationResources() throws ResourceInitializationException {
+        pipeline.add(AnalysisEngineFactory.createEngineDescription(CTAKESGenericToFHIRObservation.class));
+        return this;
+    }
+
+    /**
      * Adds pipelines for generation of {@link org.hl7.fhir.FamilyMemberHistory} resources within
      * Family/Social History document sections
      *
