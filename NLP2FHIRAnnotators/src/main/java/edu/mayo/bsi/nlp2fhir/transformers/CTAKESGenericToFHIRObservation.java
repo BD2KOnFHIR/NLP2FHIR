@@ -38,33 +38,13 @@ public class CTAKESGenericToFHIRObservation  extends JCasAnnotator_ImplBase {
                         throw new AssertionError("Ontology Concept not a UMLS Concept!");
                     }
                     UmlsConcept c = (UmlsConcept) fs;
-                    String code = null; // Vocab specific
+                    String code = c.getCui() + "|" + c.getTui();
                     String term = c.getPreferredText();
-                    String rootItem = "404684003"; // As defined in http://hl7.org/fhir/ValueSet/condition-code
-                    try {
-                        boolean hasInterestedParent = false;
-                        for (String snomedCode : UMLS.getSourceCodesForVocab(UMLS.UMLSSourceVocabulary.SNOMEDCT_US, c.getCui())) {
-                            code = snomedCode;
-                            hasInterestedParent = SNOMEDCT.isChild(snomedCode, rootItem);
-                            if (hasInterestedParent) {
-                                Collection<String> preferred = UMLS.getSourceTermPreferredText(UMLS.UMLSSourceVocabulary.SNOMEDCT_US, snomedCode);
-                                if (!preferred.isEmpty()) {
-                                    term = preferred.iterator().next();
-                                }
-                                break;
-                            }
-                        }
-                        if (!hasInterestedParent) {
-                            continue;
-                        }
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
                     if (code != null) {
                         concept.setCoding(new FSArray(jCas, 1));
                         Coding coding = new Coding(jCas, mention.getBegin(), mention.getEnd());
                         coding.addToIndexes();
-                        coding.setSystem(Util.instantiatePrimitiveWithValue(Uri.class, jCas, "http://snomed.info/sct", mention.getBegin(), mention.getEnd()));
+                        coding.setSystem(Util.instantiatePrimitiveWithValue(Uri.class, jCas, "http://www.nlm.nih.gov/research/umls/", mention.getBegin(), mention.getEnd()));
                         coding.setCode(Util.instantiatePrimitiveWithValue(Code.class, jCas, code, mention.getBegin(), mention.getEnd()));
                         coding.setDisplay(Util.instantiatePrimitiveWithValue(FHIRString.class, jCas, term, mention.getBegin(), mention.getEnd()));
                         concept.setCoding(0, coding);
